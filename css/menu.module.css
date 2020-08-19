@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  width: 600px;
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0;
+}
+
+.item {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  height: 100%;
+  padding: 0px 15px;
+}
+
+.link:hover {
+  background: #444;
+  color: #ccc;
+}
+
+.active {
+  background: #444;
+  color: #ccc;
+}

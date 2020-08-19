@@ -1,12 +1,25 @@
-import styles from "../css/header.module.css";
+import header from "../css/header.module.css";
+import menu from "../css/menu.module.css";
 
 function Menu() {
   return (
-    <nav>
-      <ul className={styles.menu}>
-        <li className={styles.item}>Кинотеатр</li>
-        <li className={styles.item}>Ресторан</li>
-        <li className={styles.item}>Гостиница</li>
+    <nav className={menu.container}>
+      <ul className={menu.menu}>
+        <li className={menu.item}>
+          <a href="#" className={menu.link}>
+            Кинотеатр
+          </a>
+        </li>
+        <li className={menu.item}>
+          <a href="#" className={menu.link}>
+            Ресторан
+          </a>
+        </li>
+        <li className={menu.item}>
+          <a href="#" className={menu.link}>
+            Гостиница
+          </a>
+        </li>
       </ul>
     </nav>
   );
@@ -14,8 +27,9 @@ function Menu() {
 
 export default function Header() {
   return (
-    <header className={styles.header}>
-      <div className={styles.logo} />
+    <header className={header.container}>
+      <div className={header.logo} />
+      <div className={header.line} />
       <Menu />
     </header>
   );
