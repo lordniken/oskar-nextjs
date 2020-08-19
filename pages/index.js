@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Header from "../components/header";
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
         <title>Next.js app</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h2>Let's go!</h2>
+      <Header />
     </div>
-  )
+  );
 }
