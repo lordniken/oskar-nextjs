@@ -1,16 +1,13 @@
-import Head from "next/head";
 import Header from "../components/header";
 import Content from "../components/content";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Next.js app</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
+      <Header>Главная страница</Header>
       <Content />
+      <Footer />
     </>
   );
 }

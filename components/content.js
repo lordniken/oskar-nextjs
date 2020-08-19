@@ -1,3 +1,3 @@
 export default function Content() {
-  return <main></main>;
+  return <main>Home page text</main>;
 }

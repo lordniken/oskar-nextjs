@@ -28,7 +28,7 @@
 }
 
 .link:hover {
-  background: #444;
+  background: linear-gradient(#555, #444);
   color: #ccc;
 }
 
