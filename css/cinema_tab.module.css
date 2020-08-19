@@ -1,0 +1,54 @@
+.container {
+  height: 50px;
+  background: #ddd;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabs {
+  justify-content: space-between;
+  list-style-type: none;
+  text-transform: uppercase;
+  min-width: 300px;
+  margin: 0;
+  height: 48px;
+}
+
+.container,
+.item,
+.tabs,
+.search,
+.link:hover {
+  display: flex;
+  align-items: center;
+}
+
+.item,
+.link:hover {
+  height: 100%;
+}
+
+.active,
+.link:hover {
+  border-bottom: 2px solid #565656;
+  margin-top: 2px;
+}
+
+.link {
+  text-decoration: none;
+  color: #3c3c3c;
+}
+
+.search {
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.input {
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 15rem;
+  padding: 5px;
+}
