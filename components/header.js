@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Menu from "./menu";
-import header from "../css/header.module.css";
+import css from "../css/header.module.css";
 
 export default function Header({ children }) {
   return (
@@ -14,13 +14,13 @@ export default function Header({ children }) {
           rel="stylesheet"
         />
       </Head>
-      <header className={header.container}>
+      <header className={css.container}>
         <Link href="/">
           <a>
-            <div className={header.logo} />
+            <div className={css.logo} />
           </a>
         </Link>
-        <div className={header.line} />
+        <div className={css.line} />
         <Menu />
       </header>
     </>

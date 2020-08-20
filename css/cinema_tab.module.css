@@ -9,7 +9,7 @@
   justify-content: space-between;
   list-style-type: none;
   text-transform: uppercase;
-  min-width: 300px;
+  min-width: 290px;
   margin: 0;
   height: 48px;
 }
@@ -17,6 +17,7 @@
 .container,
 .item,
 .tabs,
+.link,
 .search,
 .link:hover {
   display: flex;
@@ -24,6 +25,7 @@
 }
 
 .item,
+.link,
 .link:hover {
   height: 100%;
 }
@@ -37,6 +39,7 @@
 .link {
   text-decoration: none;
   color: #3c3c3c;
+  padding: 0 5px;
 }
 
 .search {

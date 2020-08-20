@@ -1,10 +1,10 @@
-import tabcss from "../../css/cinema_tab.module.css";
+import css from "../../css/cinema_tab.module.css";
 import Link from "next/link";
 
 export const tabList = [
   {
     title: "Сегодня в кино",
-    link: "current",
+    link: "today",
   },
   {
     title: "Скоро в кино",
@@ -14,21 +14,26 @@ export const tabList = [
 
 export function Tabs({ page }) {
   return (
-    <div className={tabcss.container}>
-      <ul className={tabcss.tabs}>
+    <div className={css.container}>
+      <ul className={css.tabs}>
         {tabList.map(({ title, link }, index) => (
-          <li
-            className={[tabcss.item, page === link && tabcss.active].join(" ")}
-            key={index}
-          >
-            <Link href={"/cinema/[page]"} as={`/cinema/${link}`}>
-              <a className={tabcss.link}>{title}</a>
-            </Link>
+          <li className={css.item} key={index}>
+            {page === link ? (
+              <span className={[css.link, css.active].join(" ")}>{title}</span>
+            ) : (
+              <Link href={"/cinema/[page]"} as={`/cinema/${link}`}>
+                <a className={css.link}>{title}</a>
+              </Link>
+            )}
           </li>
         ))}
       </ul>
-      <div className={tabcss.search}>
-        <input type="text" className={tabcss.input} placeholder="Фильтр" />
+      <div className={css.search}>
+        <input
+          type="text"
+          className={css.input}
+          placeholder="Фильтр по названию или жанру"
+        />
       </div>
     </div>
   );

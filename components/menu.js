@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import menu from "../css/menu.module.css";
+import css from "../css/menu.module.css";
 
 export default function Menu() {
   const menuList = [
-    { title: "Кинотеатр", href: "/cinema/[page]", as: "/cinema/current" },
+    { title: "Кинотеатр", href: "/cinema/[page]", as: "/cinema/today" },
     { title: "Ресторан", href: "/restaurant" },
     { title: "Гостиница", href: "/hotel" },
   ];
@@ -12,20 +12,17 @@ export default function Menu() {
   const router = useRouter();
 
   return (
-    <nav className={menu.container}>
-      <ul className={menu.menu}>
+    <nav className={css.container}>
+      <ul className={css.menu}>
         {menuList.map(({ title, href, as }, index) => (
-          <li className={menu.item} key={index}>
-            <Link href={href} as={as}>
-              <a
-                className={[
-                  menu.link,
-                  router.pathname === href && menu.active,
-                ].join(" ")}
-              >
-                {title}
-              </a>
-            </Link>
+          <li className={css.item} key={index}>
+            {router.pathname === href ? (
+              <span className={[css.link, css.active].join(" ")}>{title}</span>
+            ) : (
+              <Link href={href} as={as}>
+                <a className={css.link}>{title}</a>
+              </Link>
+            )}
           </li>
         ))}
       </ul>

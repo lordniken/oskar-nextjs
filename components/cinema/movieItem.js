@@ -1,10 +1,19 @@
+import css from "../../css/movie_item.module.css";
+import Link from "next/link";
+
 export default function Movie({ data }) {
   return (
-    <div>
-      {/*<img src="http://xn----7sbbina5amcvokdhi4p.xn--p1ai/images/posters/500-725/07871915a8107172b3b5dc15a6574ad3.jpg" />*/}
-      <img
-        src={`http://xn----7sbbina5amcvokdhi4p.xn--p1ai/images/posters/500-725/${data.image}.jpg`}
-      />
-    </div>
+    <Link href={"/cinema/[page]"} as={`/cinema/${data.name}`}>
+      <a className={css.link}>
+        <div className={css.item}>
+          <img
+            src={`http://xn----7sbbina5amcvokdhi4p.xn--p1ai/images/posters/500-725/${data.image}.jpg`}
+            className={css.poster}
+          />
+          <span className={css.title}>{data.title}</span>
+          <span className={css.type}>{data.type}</span>
+        </div>
+      </a>
+    </Link>
   );
 }

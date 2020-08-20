@@ -26,12 +26,7 @@
   padding: 0px 15px;
 }
 
-.link:hover {
-  background: linear-gradient(#555, #444);
-  color: #ccc;
-}
-
+.link:hover,
 .active {
-  background: #444;
   color: #ccc;
 }
