@@ -4,9 +4,8 @@ import css from "../css/menu.module.css";
 
 export default function Menu() {
   const menuList = [
-    { title: "Кинотеатр", href: "/cinema/[page]", as: "/cinema/today" },
-    { title: "Ресторан", href: "/restaurant" },
-    { title: "Гостиница", href: "/hotel" },
+    { title: "Сегодня в кино", href: "/cinema/[page]", as: "/cinema/today" },
+    { title: "Скоро в кино", href: "/cinema/[page]", as: "/cinema/future" },
   ];
 
   const router = useRouter();
@@ -16,7 +15,7 @@ export default function Menu() {
       <ul className={css.menu}>
         {menuList.map(({ title, href, as }, index) => (
           <li className={css.item} key={index}>
-            {router.pathname === href ? (
+            {router.asPath === as ? (
               <span className={[css.link, css.active].join(" ")}>{title}</span>
             ) : (
               <Link href={href} as={as}>

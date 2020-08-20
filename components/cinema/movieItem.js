@@ -1,9 +1,9 @@
 import css from "../../css/movie_item.module.css";
 import Link from "next/link";
 
-export default function Movie({ data }) {
+export default function MovieItem({ data }) {
   return (
-    <Link href={"/cinema/[page]"} as={`/cinema/${data.name}`}>
+    <Link href={"/movie/[movie]"} as={`/movie/${data.name}`}>
       <a className={css.link}>
         <div className={css.item}>
           <img

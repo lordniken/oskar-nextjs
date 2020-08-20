@@ -1,8 +1,7 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import { tabList, Tabs } from "../../components/cinema/tabs";
 import { useRouter } from "next/router";
-import Movie from "../../components/cinema/movieItem";
+import MovieItem from "../../components/cinema/movieItem";
 import Content from "../../components/content";
 import css from "../../css/cinema.module.css";
 
@@ -12,11 +11,11 @@ export default function Cinema({ movies }) {
   return (
     <>
       <Header>Кинотеатр</Header>
-      <Tabs page={router.query.page} />
+
       <Content>
-        <div class={css.container}>
+        <div className={css.container}>
           {movies &&
-            movies.map((item, index) => <Movie key={index} data={item} />)}
+            movies.map((item, index) => <MovieItem key={index} data={item} />)}
         </div>
       </Content>
       <Footer />
@@ -25,8 +24,10 @@ export default function Cinema({ movies }) {
 }
 
 export async function getStaticPaths() {
-  const paths = tabList.map(({ link }) => ({
-    params: { page: link },
+  const pages = ["today", "future"];
+
+  const paths = pages.map((page) => ({
+    params: { page },
   }));
 
   return { paths, fallback: false };
