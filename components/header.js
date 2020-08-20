@@ -1,31 +1,7 @@
-import header from "../css/header.module.css";
-import menu from "../css/menu.module.css";
-import Link from "next/link";
 import Head from "next/head";
-
-function Menu() {
-  return (
-    <nav className={menu.container}>
-      <ul className={menu.menu}>
-        <li className={menu.item}>
-          <Link href="/cinema">
-            <a className={menu.link}>Кинотеатр</a>
-          </Link>
-        </li>
-        <li className={menu.item}>
-          <a href="#" className={menu.link}>
-            Ресторан
-          </a>
-        </li>
-        <li className={menu.item}>
-          <a href="#" className={menu.link}>
-            Гостиница
-          </a>
-        </li>
-      </ul>
-    </nav>
-  );
-}
+import Link from "next/link";
+import Menu from "./menu";
+import header from "../css/header.module.css";
 
 export default function Header({ children }) {
   return (
@@ -44,7 +20,6 @@ export default function Header({ children }) {
             <div className={header.logo} />
           </a>
         </Link>
-
         <div className={header.line} />
         <Menu />
       </header>
