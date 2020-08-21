@@ -30,3 +30,8 @@
   border: 0;
   padding: 4px;
 }
+
+.movies_today {
+  user-select: none;
+  cursor: pointer;
+}

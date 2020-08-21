@@ -1,5 +1,6 @@
 import css from "../../css/movie_item.module.css";
 import Link from "next/link";
+import { movieTimeCompare } from "../../components/functions";
 
 export default function MovieItem({ data, filtered }) {
   return (
@@ -12,6 +13,23 @@ export default function MovieItem({ data, filtered }) {
           />
           <span className={css.title}>{data.title}</span>
           <span className={css.type}>{data.type}</span>
+          <div className={css.sessions}>
+            {data.schedule &&
+              data.schedule.map((item, index) => (
+                <div
+                  className={[
+                    css.session,
+                    movieTimeCompare(item) && css.inactive,
+                  ].join(" ")}
+                  key={`${item}_${index}`}
+                >
+                  {item}
+                </div>
+              ))}
+            {data.start && (
+              <div className={css.session}>в кино с {data.start}</div>
+            )}
+          </div>
         </div>
       </a>
     </Link>
