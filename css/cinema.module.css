@@ -2,5 +2,31 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.filter_container {
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  background: #3c3c3c;
+  width: 250px;
+  height: 34px;
+  border-radius: 0 0 6px 0;
+}
+
+.filer_count {
+  padding-left: 10px;
+  font-size: 14px;
+  color: #565656;
+}
+
+.input {
   width: 100%;
+  margin: 0 10px 8px 10px;
+  border-radius: 2px;
+  border: 0;
+  padding: 4px;
 }
