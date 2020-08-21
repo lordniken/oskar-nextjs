@@ -4,6 +4,7 @@ import MovieItem from "../../components/cinema/movieItem";
 import Content from "../../components/content";
 import css from "../../css/cinema.module.css";
 import { useState, useEffect, useRef } from "react";
+import { declOfNum } from "../../components/functions";
 
 export default function Cinema({ movies }) {
   const [filteredText, setFilteredText] = useState("");
@@ -18,9 +19,11 @@ export default function Cinema({ movies }) {
       ? movies.filter(
           (item) =>
             item.title.toLowerCase().indexOf(filteredText.toLowerCase()) >= 0 ||
-            item.type.indexOf(filteredText) >= 0
+            item.type.toLowerCase().indexOf(filteredText.toLowerCase()) >= 0
         )
       : movies;
+
+  const filteredLenght = filteredMovies().length;
 
   return (
     <>
@@ -33,20 +36,29 @@ export default function Cinema({ movies }) {
               className={css.input}
               placeholder="Фильтр по названию или жанру"
               ref={filterRef}
-              onChange={(e) => setFilteredText(e.target.value)}
+              onChange={({ target: { value } }) => setFilteredText(value)}
             />
           </div>
           <span className={css.filer_count}>
             {filteredText &&
-              (filteredMovies().length
-                ? `Найдено ${filteredMovies().length} совпадений`
+              (filteredLenght
+                ? `Найдено ${filteredLenght} ${declOfNum(filteredLenght)}`
                 : "Совпадений не найдено")}
           </span>
         </div>
         <div className={css.container}>
           {movies &&
-            filteredMovies().map((item, index) => (
-              <MovieItem key={index} data={item} />
+            movies.map((item, index) => (
+              <MovieItem
+                key={index}
+                data={item}
+                filtered={
+                  filteredText &&
+                  !filteredMovies().find(
+                    (filteredItem) => filteredItem.title === item.title
+                  )
+                }
+              />
             ))}
         </div>
       </Content>

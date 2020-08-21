@@ -7,16 +7,13 @@
   flex-direction: column;
   max-width: 265px;
   align-items: center;
-  -webkit-transition: background-color 300ms linear;
-  -ms-transition: background-color 300ms linear;
-  transition: background-color 300ms linear;
   border-radius: 10px;
   border: 1px solid #ddd;
   position: relative;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .item:hover {
@@ -58,4 +55,8 @@
   display: contents;
   color: #000;
   text-decoration: none;
+}
+
+.item_filtered {
+  opacity: 0.2;
 }
