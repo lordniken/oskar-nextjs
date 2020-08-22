@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import css from "../css/menu.module.css";
+import css from "../../css/menu.module.css";
 
 export default function Menu() {
   const menuList = [

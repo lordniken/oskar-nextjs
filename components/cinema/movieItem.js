@@ -4,7 +4,7 @@ import { movieTimeCompare } from "../../components/functions";
 
 export default function MovieItem({ data, filtered }) {
   return (
-    <Link href={"/movie/[movie]"} as={`/movie/${data.name}`}>
+    <Link href={"/cinema/[page]"} as={`/cinema/${data.name}`}>
       <a className={css.link}>
         <div className={[css.item, filtered && css.item_filtered].join(" ")}>
           <img

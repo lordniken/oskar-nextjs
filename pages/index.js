@@ -1,13 +1,5 @@
-import Header from "../components/header";
-import Content from "../components/content";
-import Footer from "../components/footer";
+import Page from "../components/page";
 
 export default function Home() {
-  return (
-    <>
-      <Header>Главная страница</Header>
-      <Content />
-      <Footer />
-    </>
-  );
+  return <Page title="Главная страница">Main page</Page>;
 }
