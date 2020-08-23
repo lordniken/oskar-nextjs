@@ -1,5 +1,5 @@
 import Page from "../page";
-import css from "../../css/cinema.module.css";
+import css from "../../css/movies.module.css";
 import MovieItem from "../../components/cinema/movieItem";
 import { declOfNum } from "../../components/functions";
 import { useState, useEffect, useRef } from "react";

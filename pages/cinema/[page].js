@@ -4,15 +4,15 @@ import MoviePage from "../../components/cinema/movie";
 
 const staticPages = ["today", "future"];
 
-export default function Cinema({ movies }) {
+export default function Cinema({ payload }) {
   const {
     query: { page },
   } = useRouter();
 
   return staticPages.includes(page) ? (
-    <MoviesPage movies={movies} />
+    <MoviesPage movies={payload} />
   ) : (
-    <MoviePage movie={movies} />
+    <MoviePage movie={payload} />
   );
 }
 
@@ -29,6 +29,6 @@ export const getStaticProps = async ({ params: { page } }) => {
     `http://xn----7sbbina5amcvokdhi4p.xn--p1ai/api/?action=${page}`
   );
 
-  const movies = await res.json();
-  return { props: { movies } };
+  const payload = await res.json();
+  return { props: { payload } };
 };

@@ -1,0 +1,67 @@
+.container,
+.info_container,
+.info_item,
+.original_title {
+  display: flex;
+}
+
+.poster_container {
+  width: 100%;
+  max-width: 500px;
+  min-width: 240px;
+}
+
+.poster {
+  width: 100%;
+  border: 2px solid #727272;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.movie_container {
+  margin-left: 10px;
+  padding: 0 10px;
+  width: 100%;
+  min-width: 500px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 400;
+  padding-bottom: 6px;
+  font-size: 30px;
+}
+
+.original_title {
+  color: #999;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.info_container {
+  flex-direction: column;
+}
+
+.info_item {
+  flex-direction: row;
+  padding: 5px 0;
+  border-bottom: 1px dotted #adadad;
+}
+
+.info_title,
+.info_value {
+  font-size: 16px;
+}
+
+.info_title {
+  width: 200px;
+  min-width: 200px;
+  color: #999;
+}
+
+.description {
+  text-align: justify;
+}
+
+.trailer_container {
+  width: 100%;
+}
