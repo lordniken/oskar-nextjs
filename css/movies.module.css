@@ -8,7 +8,7 @@
 .filter_container {
   display: flex;
   align-items: center;
-  margin: -10px;
+  margin-top: -1px;
 }
 
 .filter {
@@ -36,4 +36,14 @@
 .movies_today {
   user-select: none;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100vh;
+  }
+
+  .filter {
+    width: 220px;
+  }
 }
