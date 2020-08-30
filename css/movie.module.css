@@ -11,7 +11,7 @@
 
 .poster_container {
   width: 100%;
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .poster {
@@ -67,4 +67,40 @@
 
 .trailer_container {
   width: 100%;
+}
+
+.schedule_container {
+  width: 400px;
+}
+
+.schedule_title {
+  margin: 0;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+.schedule_day {
+  padding: 5px 0;
+}
+
+.schedule_date {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #999b9c;
+}
+
+.schedule_sessions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.schedule_session {
+  background: #888;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+  margin: 0 4px 4px 0px;
+  text-shadow: 0 1px 0 #313131;
+  border: 1px solid #7f7f7f;
 }

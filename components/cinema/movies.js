@@ -43,18 +43,22 @@ export default function MoviesPage({ movies }) {
         </span>
       </div>
       <div className={css.container}>
-        {movies.map((item, index) => (
-          <MovieItem
-            key={index}
-            data={item}
-            filtered={
-              filteredText &&
-              !filteredMovies().find(
-                (filteredItem) => filteredItem.title === item.title
-              )
-            }
-          />
-        ))}
+        {movies.length > 0 ? (
+          movies.map((item, index) => (
+            <MovieItem
+              key={index}
+              data={item}
+              filtered={
+                filteredText &&
+                !filteredMovies().find(
+                  (filteredItem) => filteredItem.title === item.title
+                )
+              }
+            />
+          ))
+        ) : (
+          <p>Информация о фильмах отсуствует</p>
+        )}
       </div>
     </Page>
   );

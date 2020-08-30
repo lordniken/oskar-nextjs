@@ -23,12 +23,13 @@ export default function MovieItem({
                 <div
                   className={[
                     css.session,
-                    movieTimeCompare(item) && css.inactive,
+                    movieTimeCompare(item) ? css.inactive : null,
                   ].join(" ")}
                   key={`${item}_${index}`}
                   title={
-                    movieTimeCompare(item) &&
-                    "На этот сеанс Вы уже не успеете 😦"
+                    movieTimeCompare(item)
+                      ? "На этот сеанс Вы уже не успеете 😦"
+                      : null
                   }
                 >
                   {item}

@@ -1,6 +1,6 @@
 import Page from "../page";
 import css from "../../css/movie.module.css";
-import { declOfNum } from "../../components/functions";
+import { declOfNum, dayOfWeekByDate } from "../../components/functions";
 
 export default function MoviePage({
   movie: {
@@ -16,6 +16,7 @@ export default function MoviePage({
     format,
     description,
     trailer,
+    schedule,
   },
 }) {
   const durationHours = `${Math.floor(duration / 60)} ${declOfNum(
@@ -80,7 +81,6 @@ export default function MoviePage({
             {en_title && `${en_title}, `}
             {age}+
           </span>
-
           <div className={css.info_container}>
             {infoRows.map(({ title, value }, index) => (
               <div className={css.info_item} key={`${title}_${index}`}>
@@ -91,16 +91,27 @@ export default function MoviePage({
           </div>
           <p className={css.description}>{description}</p>
           <div className={css.trailer_container}>
-            <iframe
-              width="100%"
-              height="274"
-              src={trailer}
-              frameborder="0"
-              allowfullscreen=""
-            />
+            <iframe width="100%" height="274" src={trailer} frameBorder="0" />
           </div>
         </div>
-        <div className={css.schedule_container}></div>
+        <div className={css.schedule_container}>
+          <h2 className={css.schedule_title}>Расписание сеансов</h2>
+          {schedule.map((item) => (
+            <div className={css.schedule_day}>
+              <div className={css.schedule_date}>
+                {`${item.date
+                  .split("-")
+                  .reverse()
+                  .join(".")}, ${dayOfWeekByDate(item.date)}`}
+              </div>
+              <div className={css.schedule_sessions}>
+                {item.sessions.map((schedule) => (
+                  <span className={css.schedule_session}>{schedule}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </Page>
   );
