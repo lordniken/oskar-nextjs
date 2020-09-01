@@ -56,6 +56,35 @@
   opacity: 0.2;
 }
 
+.rating {
+  position: absolute;
+  left: -10px;
+  top: 60px;
+  background: linear-gradient(#fff, #ddd);
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 50px;
+  z-index: 100;
+}
+
+.rating:before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  left: -1px;
+  z-index: 5;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.rating_value {
+  font-size: 14px;
+  padding: 2px;
+  color: #727272;
+}
+
 .sessions {
   margin: 4px 0 15px 0;
   border-radius: 4px;

@@ -10,13 +10,12 @@ export const declOfNum = (
   ];
 };
 
-export const movieTimeCompare = (movieTime) => {
+export const movieTimeCompare = (movieTime, date = new Date()) => {
   const movieUnixTime = new Date(
-    `${new Date().getFullYear()}-${
-      new Date().getMonth() + 1
-    }-${new Date().getDate()} ${movieTime}:00`
+    `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()} ${movieTime}:00`
   ).getTime();
-
   return movieUnixTime < new Date().getTime();
 };
 
