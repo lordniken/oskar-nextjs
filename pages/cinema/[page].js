@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import MoviesPage from "../../components/cinema/movies";
-import MoviePage from "../../components/cinema/movie";
+import MoviesPage from "../../components/Movies";
+import MoviePage from "../../components/MovieInfo";
 
 const staticPages = ["today", "future"];
 

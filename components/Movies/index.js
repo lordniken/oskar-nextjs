@@ -1,7 +1,7 @@
 import Page from "../page";
-import css from "../../css/movies.module.css";
-import MovieItem from "../../components/cinema/movieItem";
-import { declOfNum } from "../../components/functions";
+import css from "./movies.module.scss";
+import MovieItem from "../MovieItem";
+import { declOfNum } from "../functions";
 import { useState, useEffect, useRef } from "react";
 
 export default function MoviesPage({ movies }) {
@@ -25,17 +25,16 @@ export default function MoviesPage({ movies }) {
 
   return (
     <Page title="Кинотеатр">
-      <div className={css.filter_container}>
-        <div className={css.filter}>
+      <div className={css.filter}>
+        <div className={css.filter_container}>
           <input
             type="text"
-            className={css.input}
             placeholder="Фильтр по названию или жанру"
             ref={filterRef}
             onChange={({ target: { value } }) => setFilteredText(value)}
           />
         </div>
-        <span className={css.filer_count}>
+        <span className={css.filter_message}>
           {filteredText &&
             (filteredLenght
               ? `Найдено ${filteredLenght} ${declOfNum(filteredLenght)}`

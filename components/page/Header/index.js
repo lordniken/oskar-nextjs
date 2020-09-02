@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Menu from "./menu";
-import css from "../../css/header.module.css";
+import css from "./header.module.scss";
 
 export default function Header({ children }) {
   return (
