@@ -4,6 +4,7 @@ import {
   declOfNum,
   dayOfWeekByDate,
   movieTimeCompare,
+  ratingLogoPaths,
 } from "../../components/functions";
 
 export default function MoviePage({
@@ -20,6 +21,8 @@ export default function MoviePage({
     format,
     description,
     trailer,
+    rating,
+    start,
     schedule,
   },
 }) {
@@ -37,7 +40,7 @@ export default function MoviePage({
         ])}`
       : "";
 
-  const infoRows = [
+  let infoRows = [
     {
       title: "страна",
       value: country,
@@ -66,7 +69,29 @@ export default function MoviePage({
       title: "возрастное ограничение",
       value: `${age}+`,
     },
+    {
+      title: "премьера",
+      value: start,
+    },
   ];
+
+  if (rating) {
+    infoRows = [
+      ...infoRows,
+      {
+        title: "рейтинг",
+        value: rating.map(
+          (item, index) =>
+            item && (
+              <div className={css.rating} key={`${item}_${index}`}>
+                <img src={ratingLogoPaths[index]} />
+                {item}
+              </div>
+            )
+        ),
+      },
+    ];
+  }
 
   return (
     <Page title={title}>
@@ -78,7 +103,6 @@ export default function MoviePage({
             title={title}
           />
         </div>
-
         <div className={css.movie_container}>
           <h1 className={css.title}>{title}</h1>
           <span className={css.original_title}>
@@ -98,34 +122,39 @@ export default function MoviePage({
             <iframe width="100%" height="274" src={trailer} frameBorder="0" />
           </div>
         </div>
-        <div className={css.schedule_container}>
-          <h2 className={css.schedule_title}>Расписание сеансов</h2>
-          {schedule.map((item, itemIndex) => (
-            <div className={css.schedule_day} key={`${item.date}_${itemIndex}`}>
-              <div className={css.schedule_date}>
-                {`${item.date
-                  .split("-")
-                  .reverse()
-                  .join(".")}, ${dayOfWeekByDate(item.date)}`}
+        {schedule && (
+          <div className={css.schedule_container}>
+            <h2 className={css.schedule_title}>Расписание сеансов</h2>
+            {schedule.map((item, itemIndex) => (
+              <div
+                className={css.schedule_day}
+                key={`${item.date}_${itemIndex}`}
+              >
+                <div className={css.schedule_date}>
+                  {`${item.date
+                    .split("-")
+                    .reverse()
+                    .join(".")}, ${dayOfWeekByDate(item.date)}`}
+                </div>
+                <div className={css.schedule_sessions}>
+                  {item.sessions.map((schedule, scheduleIndex) => (
+                    <span
+                      className={[
+                        css.schedule_session,
+                        movieTimeCompare(schedule, new Date(item.date))
+                          ? css.schedule_session_inactive
+                          : null,
+                      ].join(" ")}
+                      key={`${schedule}_${scheduleIndex}`}
+                    >
+                      {schedule}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className={css.schedule_sessions}>
-                {item.sessions.map((schedule, scheduleIndex) => (
-                  <span
-                    className={[
-                      css.schedule_session,
-                      movieTimeCompare(schedule, new Date(item.date))
-                        ? css.schedule_session_inactive
-                        : null,
-                    ].join(" ")}
-                    key={`${schedule}_${scheduleIndex}`}
-                  >
-                    {schedule}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </Page>
   );

@@ -31,3 +31,5 @@ export const dayOfWeekByDate = (date) => {
   ];
   return days[new Date(date).getDay()];
 };
+
+export const ratingLogoPaths = ["/imdb.png", "/kp.png"];

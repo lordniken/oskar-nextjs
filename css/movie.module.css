@@ -61,6 +61,10 @@
   color: #999;
 }
 
+.info_value {
+  display: flex;
+}
+
 .description {
   text-align: justify;
 }
@@ -77,6 +81,16 @@
   margin: 0;
   padding-bottom: 10px;
   font-weight: 400;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.rating img {
+  padding: 0 2px;
 }
 
 .schedule_day {
