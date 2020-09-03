@@ -4,7 +4,7 @@
   width: 500px;
   height: auto;
 
-  @include media("<=425px") {
+  @include media("<=tablet") {
     width: 100%;
     margin-bottom: 10px;
   }
@@ -40,7 +40,7 @@
         padding: 5px;
         font-size: 14px;
       }
-      @include media(">phone", "<=425px") {
+      @include media(">phone", "<=tablet") {
         padding: 5px;
         font-size: 18px;
       }

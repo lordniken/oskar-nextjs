@@ -1,5 +1,5 @@
-import Page from "../components/page";
+import Homepage from "../components/Homepage";
 
 export default function Home() {
-  return <Page title="Главная страница">Main page</Page>;
+  return <Homepage />;
 }
