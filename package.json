@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p ${PORT}",
+    "prestart": "next build",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "include-media": "^1.4.9",
