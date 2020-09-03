@@ -1,7 +1,18 @@
+@import "../../inculde-media.scss";
+
 $grey: #999;
 
 .container {
   display: flex;
+
+  @include media("<=phone") {
+    flex-direction: column;
+    justify-content: center;
+  }
+  @include media(">phone", "<=425px") {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .container {
@@ -11,10 +22,21 @@ $grey: #999;
 .poster {
   max-width: 300px;
 
+  @include media("<=phone") {
+    max-width: none;
+  }
+  @include media(">phone", "<=425px") {
+    max-width: none;
+  }
+
   img {
     width: 100%;
     border: 2px solid $grey;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    @include media("<=425px") {
+      border: 0;
+    }
   }
 }
 
@@ -23,6 +45,17 @@ $grey: #999;
   padding: 0 10px;
   width: 100%;
   min-width: 400px;
+
+  @include media("<=phone") {
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+  }
+  @include media(">phone", "<=425px") {
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+  }
 
   h1 {
     margin: 0;
@@ -48,9 +81,26 @@ $grey: #999;
       width: 200px;
       min-width: 200px;
       color: $grey;
+
+      @include media("<=phone") {
+        width: 120px;
+        min-width: 120px;
+        font-size: 12px;
+      }
+      @include media(">phone", "<=425px") {
+        width: 120px;
+        min-width: 120px;
+        font-size: 12px;
+      }
     }
     &_value {
       display: flex;
+      @include media("<=phone") {
+        font-size: 12px;
+      }
+      @include media(">phone", "<=425px") {
+        font-size: 12px;
+      }
     }
   }
 
@@ -77,6 +127,10 @@ $grey: #999;
 
 .schedule {
   width: 400px;
+
+  @include media("<=425px") {
+    width: 100%;
+  }
 
   h3 {
     margin: 10px 0;

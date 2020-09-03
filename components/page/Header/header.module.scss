@@ -1,9 +1,29 @@
+@import "../../../inculde-media.scss";
+
 .container {
   display: flex;
   height: 150px;
   background: linear-gradient(#565656, #3c3c3c);
   align-items: center;
   justify-content: center;
+
+  @include media("<=425px") {
+    flex-direction: column;
+  }
+
+  // if the screen is going to be greater than 425px and less than or eqaul to 768px
+  @include media(">425px", "<=tablet") {
+    background: #ae76a6;
+  }
+
+  // if the screen is going to be greater than 768px and less than 1366px
+  @include media(">tablet", "<desktop") {
+    background: #a3c3d9;
+  }
+  // if the screen is going to be greater than or equal to 1366px
+  @include media(">=desktop") {
+    background: #f8bd7f;
+  }
 }
 
 .logo {
@@ -11,6 +31,15 @@
   width: 310px;
   height: 104px;
   margin: 0 10px;
+
+  @include media("<=425px") {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.link {
+  display: contents;
 }
 
 .line {
@@ -20,4 +49,8 @@
   transform: skew(-20deg);
   width: 20px;
   height: 100%;
+
+  @include media("<=425px") {
+    display: none;
+  }
 }

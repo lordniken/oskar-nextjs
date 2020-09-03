@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "include-media": "^1.4.9",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

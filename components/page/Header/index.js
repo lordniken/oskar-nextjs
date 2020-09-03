@@ -7,7 +7,7 @@ export default function Header({ children }) {
   return (
     <>
       <Head>
-        <title>{children} / Кинотеатр "Оскар"</title>
+        <title> {children}/ Кинотеатр "Оскар"</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
@@ -20,12 +20,11 @@ export default function Header({ children }) {
       </Head>
       <header className={css.container}>
         <Link href="/">
-          <a>
+          <a className={css.link}>
             <div className={css.logo} />
           </a>
         </Link>
-        <div className={css.line} />
-        <Menu />
+        <div className={css.line} /> <Menu />
       </header>
     </>
   );

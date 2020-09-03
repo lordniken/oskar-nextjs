@@ -1,12 +1,20 @@
+@import "../../../../inculde-media.scss";
+
 .container {
   width: 500px;
-  height: 100%;
+  height: auto;
+
+  @include media("<=425px") {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 .list {
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 100%;
   margin: 0;
+  padding: 0;
   display: flex;
 
   &_item {
@@ -26,6 +34,15 @@
       &:hover,
       &_active {
         color: #ccc;
+      }
+
+      @include media("<=phone") {
+        padding: 5px;
+        font-size: 14px;
+      }
+      @include media(">phone", "<=425px") {
+        padding: 5px;
+        font-size: 18px;
       }
     }
   }

@@ -1,3 +1,5 @@
+@import "../../inculde-media.scss";
+
 .container {
   display: flex;
   flex-flow: row wrap;
@@ -8,6 +10,11 @@
 .filter {
   display: flex;
   align-items: center;
+
+  @include media("<=425px") {
+    justify-content: center;
+    flex-direction: column;
+  }
 
   &_container {
     display: flex;
@@ -22,6 +29,10 @@
       border-radius: 2px;
       border: 0;
       padding: 4px;
+    }
+
+    @include media("<=425px") {
+      border-radius: 0 0 6px 6px;
     }
   }
 
