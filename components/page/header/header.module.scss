@@ -1,0 +1,43 @@
+@import "../../../inculde-media.scss";
+
+.container {
+  display: flex;
+  height: 150px;
+  background: linear-gradient(#565656, #3c3c3c);
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+
+  @include media("<=tablet") {
+    flex-direction: column;
+  }
+}
+
+.logo {
+  background: url(/logo.png) no-repeat center/contain;
+  width: 310px;
+  height: 104px;
+  margin: 0 10px;
+
+  @include media("<=tablet") {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.link {
+  display: contents;
+}
+
+.line {
+  border-right: 5px solid #fff;
+  -moz-transform: skew(-20deg);
+  -webkit-transform: skew(-20deg);
+  transform: skew(-20deg);
+  width: 20px;
+  height: 100%;
+
+  @include media("<=tablet") {
+    display: none;
+  }
+}
