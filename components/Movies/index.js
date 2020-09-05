@@ -3,6 +3,7 @@ import css from "./movies.module.scss";
 import MovieItem from "../MovieItem";
 import { declOfNum } from "../functions";
 import { useState, useEffect, useRef } from "react";
+import Timeline from "../movieTimeline";
 
 export default function MoviesPage({ movies }) {
   const [filteredText, setFilteredText] = useState("");
@@ -41,6 +42,7 @@ export default function MoviesPage({ movies }) {
               : "Совпадений не найдено")}
         </span>
       </div>
+      <Timeline movies={movies} />
       <div className={css.container}>
         {movies.length > 0 ? (
           movies.map((item, index) => (

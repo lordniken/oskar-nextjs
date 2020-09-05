@@ -1,0 +1,42 @@
+.container {
+  margin: 10px;
+  position: relative;
+  padding-left: 50px;
+  display: flex;
+}
+
+.timestamp_container {
+  position: relative;
+  flex: 1;
+}
+
+.currentHour {
+  position: absolute;
+  height: 100%;
+  font-size: 14px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: calc(100% - 20px);
+    width: 1px;
+    border-left: 1px solid silver;
+  }
+}
+
+.marks {
+  display: flex;
+  margin-top: 50px;
+  &_hour {
+    width: 5%;
+  }
+}
+
+.room {
+  border: 1px solid red;
+}
+
+.movie {
+}

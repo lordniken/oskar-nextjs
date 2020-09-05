@@ -1,4 +1,4 @@
-import Page from "../Page";
+import Page from "../page";
 
 export default function Homepage() {
   return (
@@ -6,7 +6,7 @@ export default function Homepage() {
       <div className="index">
         <h3>Привет!</h3>
         <p>
-          Этот небольшой pet-project, созданный при помощи Next.js (SSR). Все
+          Это небольшой pet-project, созданный при помощи Next.js (SSR). Все
           данные актуальны и подтягиваются через API существующего кинотеатра. В
           процессе разработки были использованы React, SASS и пакет
           include-media (для оптимизации работы сайта на мобильных устройсвах).
