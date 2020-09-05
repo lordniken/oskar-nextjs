@@ -33,3 +33,28 @@ export const dayOfWeekByDate = (date) => {
 };
 
 export const ratingLogoPaths = ["/imdb.png", "/kp.png"];
+
+// timeline functions
+
+const widthPerHourPrc = 5;
+
+export const calcWidthByDuration = (duration) => {
+  const length = duration / 60;
+
+  return `${length.toFixed(2) * widthPerHourPrc}%`;
+};
+
+export const calcTopPosByRoom = (room) => `${room * 30 + room * 4}px`;
+
+export const caltLeftPosByTime = (time) => {
+  const [hour, mins] = time.split(":");
+
+  let hourOffset = 0;
+
+  if (hour < 9) hourOffset += 15 + +hour;
+  else hourOffset = +hour - 9;
+
+  const minOffset = (((+mins * 100) / 60) * widthPerHourPrc) / 100;
+
+  return (hourOffset * widthPerHourPrc + minOffset).toFixed(2) + "%";
+};

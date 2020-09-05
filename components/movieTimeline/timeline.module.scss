@@ -3,6 +3,7 @@
   position: relative;
   padding-left: 50px;
   display: flex;
+  height: 150px;
 }
 
 .timestamp_container {
@@ -19,8 +20,8 @@
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0;
-    height: calc(100% - 20px);
+    bottom: -10px;
+    height: calc(100% - 10px);
     width: 1px;
     border-left: 1px solid silver;
   }
@@ -31,6 +32,10 @@
   margin-top: 50px;
   &_hour {
     width: 5%;
+    border-left: 1px solid #000;
+    text-align: center;
+    height: 100%;
+    padding-bottom: 90px;
   }
 }
 
@@ -39,4 +44,9 @@
 }
 
 .movie {
+  position: absolute;
+  height: 30px;
+  background: silver;
+  margin-top: 50px;
+  color: #fff;
 }

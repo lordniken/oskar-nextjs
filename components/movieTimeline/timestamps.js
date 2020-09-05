@@ -1,5 +1,6 @@
 import css from "./timeline.module.scss";
 import React, { useState, useEffect } from "react";
+import { caltLeftPosByTime } from "../functions";
 
 const formatTime = (number) => {
   return number < 10 ? `0${number}` : number;
@@ -10,37 +11,44 @@ const hoursList = new Array(20).fill(0).map((_, i) => {
   return formatTime(hour) + ":00";
 });
 
-const currentTimeOffset = (date) => {
+/*const currentTimeOffset = (date) => {
   const widthPerHourPrc = 5;
-  let hourOffset = date.getHours();
+  let hourOffset = date.getHours() - 9;
   if (date.getHours() < 9) hourOffset = date.getHours() + 15;
   const minOffset = (((date.getMinutes() * 100) / 60) * widthPerHourPrc) / 100;
 
   let offset = (hourOffset * widthPerHourPrc + minOffset).toFixed(2);
   if (offset > 100) offset = 0;
+
   return offset;
 };
+*/
 
 export default function Timestamps({ children }) {
-  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(
+    formatTime(new Date().getHours()) +
+      ":" +
+      formatTime(new Date().getMinutes())
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDate(new Date());
+      setTime(
+        formatTime(new Date().getHours()) +
+          ":" +
+          formatTime(new Date().getMinutes())
+      );
     }, 60000);
     return () => clearInterval(interval);
   }, []);
-
-  const currentTime =
-    formatTime(date.getHours()) + ":" + formatTime(date.getMinutes());
 
   return (
     <div className={css.timestamp_container}>
       <div
         className={css.currentHour}
-        style={{ left: `${currentTimeOffset(date)}%` }}
+        style={{ left: `calc(${caltLeftPosByTime(time)} - 17px)` }}
       >
-        <span>{currentTime}</span>
+        <span>{time}</span>
       </div>
       <div className={css.marks}>
         {hoursList.map((hour) => (
@@ -49,7 +57,7 @@ export default function Timestamps({ children }) {
           </div>
         ))}
       </div>
-      {children}
+      <div>{children}</div>
     </div>
   );
 }
