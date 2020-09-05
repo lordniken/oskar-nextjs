@@ -5,7 +5,7 @@ import { declOfNum } from "../functions";
 import { useState, useEffect, useRef } from "react";
 import Timeline from "../movieTimeline";
 
-export default function MoviesPage({ movies }) {
+export default function MoviesPage({ movies, page }) {
   const [filteredText, setFilteredText] = useState("");
   const filterRef = useRef(null);
 
@@ -42,7 +42,7 @@ export default function MoviesPage({ movies }) {
               : "Совпадений не найдено")}
         </span>
       </div>
-      <Timeline movies={movies} />
+      {page == "today" && <Timeline movies={movies} />}
       <div className={css.container}>
         {movies.length > 0 ? (
           movies.map((item, index) => (

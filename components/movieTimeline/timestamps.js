@@ -11,19 +11,6 @@ const hoursList = new Array(20).fill(0).map((_, i) => {
   return formatTime(hour) + ":00";
 });
 
-/*const currentTimeOffset = (date) => {
-  const widthPerHourPrc = 5;
-  let hourOffset = date.getHours() - 9;
-  if (date.getHours() < 9) hourOffset = date.getHours() + 15;
-  const minOffset = (((date.getMinutes() * 100) / 60) * widthPerHourPrc) / 100;
-
-  let offset = (hourOffset * widthPerHourPrc + minOffset).toFixed(2);
-  if (offset > 100) offset = 0;
-
-  return offset;
-};
-*/
-
 export default function Timestamps({ children }) {
   const [time, setTime] = useState(
     formatTime(new Date().getHours()) +
@@ -45,8 +32,8 @@ export default function Timestamps({ children }) {
   return (
     <div className={css.timestamp_container}>
       <div
-        className={css.currentHour}
-        style={{ left: `calc(${caltLeftPosByTime(time)} - 17px)` }}
+        className={css.currentTime}
+        style={{ left: `calc(${caltLeftPosByTime(time)} - 23px)` }}
       >
         <span>{time}</span>
       </div>
@@ -57,7 +44,7 @@ export default function Timestamps({ children }) {
           </div>
         ))}
       </div>
-      <div>{children}</div>
+      {children}
     </div>
   );
 }

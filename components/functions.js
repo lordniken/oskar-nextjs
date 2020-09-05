@@ -44,7 +44,7 @@ export const calcWidthByDuration = (duration) => {
   return `${length.toFixed(2) * widthPerHourPrc}%`;
 };
 
-export const calcTopPosByRoom = (room) => `${room * 30 + room * 4}px`;
+export const calcTopPosByRoom = (room) => `${room * 40 + (room - 1) * 10}px`;
 
 export const caltLeftPosByTime = (time) => {
   const [hour, mins] = time.split(":");
@@ -56,5 +56,8 @@ export const caltLeftPosByTime = (time) => {
 
   const minOffset = (((+mins * 100) / 60) * widthPerHourPrc) / 100;
 
-  return (hourOffset * widthPerHourPrc + minOffset).toFixed(2) + "%";
+  let offset = (hourOffset * widthPerHourPrc + minOffset).toFixed(2);
+  if (offset > 98) offset = 0;
+
+  return offset + "%";
 };

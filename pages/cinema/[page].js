@@ -10,7 +10,7 @@ export default function Cinema({ payload }) {
   } = useRouter();
 
   return staticPages.includes(page) ? (
-    <MoviesPage movies={payload} />
+    <MoviesPage movies={payload} page={page} />
   ) : (
     <MoviePage movie={payload} />
   );
