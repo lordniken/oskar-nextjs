@@ -1,6 +1,6 @@
 import css from "./timeline.module.scss";
 import React, { useState, useEffect } from "react";
-import { caltLeftPosByTime } from "../functions";
+import { calcLeftPosByTime } from "../functions";
 
 const formatTime = (number) => {
   return number < 10 ? `0${number}` : number;
@@ -30,10 +30,10 @@ export default function Timestamps({ children }) {
   }, []);
 
   return (
-    <div className={css.timestamp_container}>
+    <div className={css.wrapper}>
       <div
         className={css.currentTime}
-        style={{ left: `calc(${caltLeftPosByTime(time)} - 23px)` }}
+        style={{ left: `calc(${calcLeftPosByTime(time)} - 23px)` }}
       >
         <span>{time}</span>
       </div>

@@ -46,7 +46,7 @@ export const calcWidthByDuration = (duration) => {
 
 export const calcTopPosByRoom = (room) => `${room * 40 + (room - 1) * 10}px`;
 
-export const caltLeftPosByTime = (time) => {
+export const calcLeftPosByTime = (time) => {
   const [hour, mins] = time.split(":");
 
   let hourOffset = 0;

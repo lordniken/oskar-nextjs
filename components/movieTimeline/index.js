@@ -4,7 +4,7 @@ import css from "./timeline.module.scss";
 import {
   calcWidthByDuration,
   calcTopPosByRoom,
-  caltLeftPosByTime,
+  calcLeftPosByTime,
   movieTimeCompare,
 } from "../functions";
 import Movie from "./movie";
@@ -15,12 +15,18 @@ export default function Timeline({ movies }) {
     return {
       width: calcWidthByDuration(duration),
       top: calcTopPosByRoom(room),
-      left: caltLeftPosByTime(session),
+      left: calcLeftPosByTime(session),
     };
   };
 
   return (
     <div className={css.container}>
+      <div className={css.halls}>
+        <ul>
+          <li>Зал 1</li>
+          <li>Зал 2</li>
+        </ul>
+      </div>
       <TimeStamps>
         {movies.map(({ title, schedule_timeline, duration, format, name }) =>
           schedule_timeline.map((item) =>

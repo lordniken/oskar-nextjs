@@ -13,9 +13,30 @@
   }
 }
 
-.timestamp_container {
+.wrapper {
   position: relative;
   flex: 1;
+}
+
+.halls {
+  display: flex;
+  ul {
+    list-style: none;
+    padding: 20px 10px;
+    margin: 0;
+    font-size: 14px;
+
+    @include media(">=tablet", "<desktop") {
+      font-size: 12px;
+      padding: 20px 5px;
+    }
+
+    li {
+      padding-top: 32px;
+      color: #ccc;
+      text-shadow: 1px 1px 0 #000000;
+    }
+  }
 }
 
 .currentTime {
@@ -55,14 +76,10 @@
     padding-bottom: 120px;
     font-size: 14px;
     color: #ccc;
-    text-shadow: 1px 1px 0 #000000;
+    text-shadow: 1px 1px 0 #000;
 
     @include media(">=tablet", "<desktop") {
       font-size: 12px;
-    }
-
-    &:first-child {
-      border: 0;
     }
   }
 }
@@ -119,6 +136,13 @@
     color: inherit;
     @include media(">=tablet", "<desktop") {
       font-size: 8px;
+    }
+    &:before {
+      content: "начало в ";
+
+      @include media(">=tablet", "<desktop") {
+        content: "";
+      }
     }
   }
 }
