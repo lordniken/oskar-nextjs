@@ -1,17 +1,12 @@
 import Page from "../page";
 import css from "./movies.module.scss";
 import MovieItem from "../MovieItem";
-import { declOfNum } from "../functions";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Timeline from "../timeline";
+import Filter from "./filter";
 
 export default function MoviesPage({ movies, page }) {
   const [filteredText, setFilteredText] = useState("");
-  const filterRef = useRef(null);
-
-  useEffect(() => {
-    filterRef.current.focus();
-  }, []);
 
   const filteredMovies = () =>
     filteredText
@@ -26,26 +21,11 @@ export default function MoviesPage({ movies, page }) {
 
   return (
     <Page title="Кинотеатр">
-      <div className={css.filter}>
-        <div className={css.filter_container}>
-          <input
-            type="text"
-            placeholder="Фильтр по названию или жанру"
-            ref={filterRef}
-            onChange={({ target: { value } }) => setFilteredText(value)}
-          />
-        </div>
-        <span className={css.filter_message}>
-          {filteredText &&
-            (filteredLenght
-              ? `Найдено ${filteredLenght} ${declOfNum(filteredLenght, [
-                  "совпадение",
-                  "совпадения",
-                  "совпадений",
-                ])}`
-              : "Совпадений не найдено")}
-        </span>
-      </div>
+      <Filter
+        filteredText={filteredText}
+        setFilteredText={setFilteredText}
+        filteredLenght={filteredLenght}
+      />
       {page == "today" && <Timeline movies={movies} />}
       <div className={css.container}>
         {movies.length > 0 ? (

@@ -13,20 +13,8 @@ export const movieTimeCompare = (movieTime, date = new Date()) => {
       date.getMonth() + 1
     }-${date.getDate()} ${movieTime}:00`
   ).getTime();
-  return movieUnixTime < new Date().getTime();
-};
 
-export const dayOfWeekByDate = (date) => {
-  const days = [
-    "воскресенье",
-    "понедельник",
-    "вторник",
-    "среда",
-    "четверг",
-    "пятница",
-    "суббота",
-  ];
-  return days[new Date(date).getDay()];
+  return movieUnixTime < new Date().getTime();
 };
 
 export const ratingLogoPaths = ["/imdb.png", "/kp.png"];
