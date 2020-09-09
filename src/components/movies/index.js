@@ -3,7 +3,7 @@ import css from "./movies.module.scss";
 import MovieItem from "../MovieItem";
 import { declOfNum } from "../functions";
 import { useState, useEffect, useRef } from "react";
-import Timeline from "../movieTimeline";
+import Timeline from "../timeline";
 
 export default function MoviesPage({ movies, page }) {
   const [filteredText, setFilteredText] = useState("");
@@ -38,7 +38,11 @@ export default function MoviesPage({ movies, page }) {
         <span className={css.filter_message}>
           {filteredText &&
             (filteredLenght
-              ? `Найдено ${filteredLenght} ${declOfNum(filteredLenght)}`
+              ? `Найдено ${filteredLenght} ${declOfNum(filteredLenght, [
+                  "совпадение",
+                  "совпадения",
+                  "совпадений",
+                ])}`
               : "Совпадений не найдено")}
         </span>
       </div>

@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
-  distDir: "build",
+  distDir: path.join(__dirname, "build"),
 };
