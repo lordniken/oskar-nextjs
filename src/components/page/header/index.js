@@ -7,7 +7,7 @@ export default function Header({ children }) {
   return (
     <>
       <Head>
-        <title> {children}/ Кинотеатр "Оскар"</title>
+        <title>{children} / Кинотеатр "Оскар"</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"

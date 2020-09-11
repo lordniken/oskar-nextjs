@@ -1,6 +1,6 @@
 import Page from "../page";
 import css from "./movies.module.scss";
-import MovieItem from "../MovieItem";
+import MovieItem from "../movieItem";
 import { useState } from "react";
 import Timeline from "../timeline";
 import Filter from "./filter";
