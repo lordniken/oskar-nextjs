@@ -4,6 +4,6 @@
 
 ## Demo
 
-[Live demo](https://oskar-nextjs.herokuapp.com/)
+[Live demo](http://oskar-next.lnkdev.ru/)
 
 ![](/demo.gif)
