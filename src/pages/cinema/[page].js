@@ -16,19 +16,11 @@ export default function Cinema({ payload }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = staticPages.map((page) => ({
-    params: { page },
-  }));
-
-  return { paths, fallback: false };
-}
-
-export const getStaticProps = async ({ params: { page } }) => {
+Cinema.getInitialProps = async ({ query: { page } }) => {
   const res = await fetch(
     `http://xn----7sbbina5amcvokdhi4p.xn--p1ai/api/?action=${page}`
   );
 
   const payload = await res.json();
-  return { props: { payload } };
+  return { payload };
 };

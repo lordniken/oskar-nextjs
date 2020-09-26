@@ -1,6 +1,7 @@
 import css from "./movie.module.scss";
 import Link from "next/link";
 import { movieTimeCompare, ratingLogoPaths, utToTime } from "../functions";
+import { useEffect, useState } from "react";
 
 export default function MovieItem({
   data: { name, title, image, type, start, rating, schedule_timeline_ut },
@@ -14,6 +15,10 @@ export default function MovieItem({
 
     sessions.sort((a, b) => a - b);
   }
+
+  const [isLoaded, setLoaded] = useState(false);
+
+  useEffect(() => setLoaded(true), []);
 
   return (
     <Link href={"/cinema/[page]"} as={`/cinema/${name}`}>
@@ -41,6 +46,7 @@ export default function MovieItem({
         <span className={css.item_type}>{type}</span>
         <ul className={css.item_sessions}>
           {sessions &&
+            isLoaded &&
             sessions.map((item, index) => (
               <li
                 className={[
