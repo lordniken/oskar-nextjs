@@ -1,6 +1,6 @@
 import css from "./movie.module.scss";
 import { dayOfWeekByDate } from "./functions";
-import { movieTimeCompare } from "../functions";
+import { movieTimeCompare, utToTime } from "../functions";
 
 export default function ScheduleBlock({ schedule }) {
   return (
@@ -24,7 +24,7 @@ export default function ScheduleBlock({ schedule }) {
                 ].join(" ")}
                 key={`${schedule}_${scheduleIndex}`}
               >
-                {schedule}
+                {utToTime(schedule)}
               </span>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { formatTime } from "./functions";
+import { formatTime } from "../functions";
 import css from "./timeline.module.scss";
 
 const hoursList = new Array(20).fill(0).map((_, i) => {

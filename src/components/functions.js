@@ -7,14 +7,17 @@ export const declOfNum = (number, titles) => {
   ];
 };
 
-export const movieTimeCompare = (movieTime, date = new Date()) => {
-  const movieUnixTime = new Date(
-    `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()} ${movieTime}:00`
-  ).getTime();
-
-  return movieUnixTime < new Date().getTime();
+export const movieTimeCompare = (movieTime) => {
+  return movieTime * 1000 < new Date().getTime();
 };
 
 export const ratingLogoPaths = ["/imdb.png", "/kp.png"];
+
+export const formatTime = (number) => {
+  return number < 10 ? `0${number}` : number;
+};
+
+export const utToTime = (unixTime) => {
+  const date = new Date(unixTime * 1000);
+  return `${formatTime(date.getHours())}:${formatTime(date.getMinutes())}`;
+};

@@ -1,11 +1,20 @@
 import css from "./movie.module.scss";
 import Link from "next/link";
-import { movieTimeCompare, ratingLogoPaths } from "../functions";
+import { movieTimeCompare, ratingLogoPaths, utToTime } from "../functions";
 
 export default function MovieItem({
-  data: { name, title, image, type, schedule, start, rating },
+  data: { name, title, image, type, start, rating, schedule_timeline_ut },
   filtered,
 }) {
+  let sessions = [];
+  if (schedule_timeline_ut) {
+    schedule_timeline_ut.forEach((e) => {
+      sessions = [...sessions, ...e.sessions];
+    });
+
+    sessions.sort((a, b) => a - b);
+  }
+
   return (
     <Link href={"/cinema/[page]"} as={`/cinema/${name}`}>
       <div className={[css.item, filtered && css.item_filtered].join(" ")}>
@@ -31,8 +40,8 @@ export default function MovieItem({
         <span className={css.item_title}>{title}</span>
         <span className={css.item_type}>{type}</span>
         <ul className={css.item_sessions}>
-          {schedule &&
-            schedule.map((item, index) => (
+          {sessions &&
+            sessions.map((item, index) => (
               <li
                 className={[
                   css.item_sessions_item,
@@ -47,7 +56,7 @@ export default function MovieItem({
                     : null
                 }
               >
-                {item}
+                {utToTime(item)}
               </li>
             ))}
           {start && (

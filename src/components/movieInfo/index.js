@@ -19,7 +19,7 @@ export default function MoviePage({
     trailer,
     rating,
     start,
-    schedule,
+    schedule_ts,
   },
 }) {
   return (
@@ -51,7 +51,7 @@ export default function MoviePage({
           <p className={css.info_description}>{description}</p>
           <iframe className={css.info_trailer} src={trailer} />
         </div>
-        {schedule && <ScheduleBlock schedule={schedule} />}
+        {schedule_ts && <ScheduleBlock schedule={schedule_ts} />}
       </div>
     </Page>
   );

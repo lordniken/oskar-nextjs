@@ -1,22 +1,15 @@
 import css from "./timeline.module.scss";
 import React, { useState, useEffect } from "react";
-import { calcLeftPosByTime, formatTime } from "./functions";
+import { calcLeftPosByTime } from "./functions";
 import TimeMarks from "./marks";
+import { utToTime } from "../functions";
 
 export default function Timestamps({ children }) {
-  const [time, setTime] = useState(
-    formatTime(new Date().getHours()) +
-      ":" +
-      formatTime(new Date().getMinutes())
-  );
+  const [time, setTime] = useState(new Date().getTime());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(
-        formatTime(new Date().getHours()) +
-          ":" +
-          formatTime(new Date().getMinutes())
-      );
+      setTime(new Date().getTime());
     }, 10000);
     return () => clearInterval(interval);
   }, []);
@@ -25,9 +18,9 @@ export default function Timestamps({ children }) {
     <div className={css.wrapper}>
       <div
         className={css.currentTime}
-        style={{ left: `calc(${calcLeftPosByTime(time)} - 23px)` }}
+        style={{ left: `calc(${calcLeftPosByTime(time / 1000)} - 23px)` }}
       >
-        <span>{time}</span>
+        <span>{utToTime(time / 1000)}</span>
       </div>
       <TimeMarks />
       {children}

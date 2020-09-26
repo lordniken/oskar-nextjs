@@ -1,6 +1,6 @@
 import css from "./timeline.module.scss";
 import { makeItemPosition } from "./functions";
-import { movieTimeCompare } from "../functions";
+import { movieTimeCompare, utToTime } from "../functions";
 import Link from "next/link";
 
 export default function Movie({ title, start, name, duration, session, hall }) {
@@ -27,7 +27,7 @@ export default function Movie({ title, start, name, duration, session, hall }) {
       >
         <div className={css.movie}>
           <h6 className={css.movie_title}>{title}</h6>
-          <span className={css.movie_start}>{start}</span>
+          <span className={css.movie_start}>{utToTime(start)}</span>
         </div>
       </div>
     </HeadContainer>

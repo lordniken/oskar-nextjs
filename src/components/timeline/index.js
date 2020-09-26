@@ -13,8 +13,8 @@ export default function Timeline({ movies }) {
         </ul>
       </div>
       <TimeStamps>
-        {movies.map(({ title, schedule_timeline, duration, format, name }) =>
-          schedule_timeline.map(({ room, sessions }) =>
+        {movies.map(({ title, schedule_timeline_ut, duration, format, name }) =>
+          schedule_timeline_ut.map(({ room, sessions }) =>
             sessions.map((session) => (
               <Movie
                 start={session}

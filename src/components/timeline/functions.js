@@ -9,7 +9,9 @@ const calcWidthByDuration = (duration) => {
 const calcTopPosByHall = (hall) => `${hall * 40 + (hall - 1) * 10}px`;
 
 export const calcLeftPosByTime = (time) => {
-  const [hour, mins] = time.split(":");
+  const date = new Date(time * 1000);
+  const hour = date.getHours();
+  const mins = date.getMinutes();
 
   let hourOffset = 0;
 
@@ -30,8 +32,4 @@ export const makeItemPosition = (duration, hall, session) => {
     top: calcTopPosByHall(hall),
     left: calcLeftPosByTime(session),
   };
-};
-
-export const formatTime = (number) => {
-  return number < 10 ? `0${number}` : number;
 };
