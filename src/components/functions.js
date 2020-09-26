@@ -8,7 +8,10 @@ export const declOfNum = (number, titles) => {
 };
 
 export const movieTimeCompare = (movieTime) => {
-  return movieTime * 1000 < new Date().getTime();
+  return (
+    movieTime * 1000 < new Date().getTime() &&
+    new Date(movieTime * 1000).getHours() > 5 // to display correctly night sessions
+  );
 };
 
 export const ratingLogoPaths = ["/imdb.png", "/kp.png"];
